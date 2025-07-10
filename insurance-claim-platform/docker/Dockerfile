@@ -1,3 +1,3 @@
 FROM openjdk:8-jdk-alpine
-COPY target/insurance-claim-app.jar app.jar
+COPY target/insurance-claim-platform-1.0-SNAPSHOT.jar app.jar
 ENTRYPOINT ["java", "-jar", "/app.jar"]
