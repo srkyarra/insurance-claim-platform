@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: insurance-claim-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: claim
+  template:
+    metadata:
+      labels:
+        app: claim
+    spec:
+      containers:
+        - name: claim
+          image: registry.example.com/claim-app:latest
+          ports:
+            - containerPort: 8080

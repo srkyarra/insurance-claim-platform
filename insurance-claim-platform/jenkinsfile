@@ -1,0 +1,20 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                sh './mvnw clean package'
+            }
+        }
+        stage('Dockerize') {
+            steps {
+                sh 'docker build -t insurance-claim-app .'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh 'ansible-playbook deploy.yml'
+            }
+        }
+    }
+}
